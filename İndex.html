@@ -1,0 +1,92 @@
+Yazı
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ALAZOĞLU TİCARET Bodrum damacana su siparişi. Sırma, Saka, Kaltun, Pınar ve Munzur su markları. WhatsApp ile sipariş verin.">
+<title>ALAZOĞLU TİCARET | Damacana Su Siparişi</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f8ff;color:#123047}
+header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:white;text-align:center;padding:28px 15px}
+.logo{font-size:42px}
+h1{margin:8px 0;font-size:29px}
+header p{margin:8px 0}
+.container{max-width:1000px;margin:auto;padding:20px}
+h2{text-align:center;color:#006699}
+.intro{text-align:center;line-height:1.7}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px;margin-top:24px}
+.card{background:white;border-radius:16px;padding:18px 10px;text-align:center;box-shadow:0 3px 12px #0001}
+.bottle{height:130px;width:65px;margin:5px auto 15px;border-radius:15px 15px 9px 9px;background:linear-gradient(90deg,#8bd4ff,#0878c9,#b9e8ff);position:relative;border:2px solid #c5e8ff}
+.bottle:before{content:"";position:absolute;top:-17px;left:18px;width:25px;height:18px;background:#0878c9;border-radius:5px 5px 0 0}
+.bottle:after{content:"SU";position:absolute;top:43px;left:0;right:0;padding:7px 0;background:white;color:#006699;font-weight:bold;font-size:13px}
+.card h3{margin:8px 0;color:#005f8f}
+.card p{font-size:13px;color:#657786}
+button,.whatsapp{display:block;width:100%;border:0;border-radius:9px;padding:13px;background:#19a85b;color:white;font-weight:bold;text-decoration:none;font-size:15px;cursor:pointer}
+.order{margin-top:28px;background:white;padding:22px;border-radius:15px;box-shadow:0 3px 12px #0001}
+label{display:block;margin:12px 0 6px;font-weight:bold}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5df;border-radius:8px;font-size:16px}
+footer{text-align:center;background:#073b59;color:white;padding:22px;margin-top:30px}
+.small{font-size:13px;opacity:.9}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">💧</div>
+<h1>ALAZOĞLU TİCARET</h1>
+<p>Bodrum Damacana Su Siparişi</p>
+<p>Serinlik bir WhatsApp uzağınızda!</p>
+</header>
+<main class="container">
+<h2>Su Markalarımız</h2>
+<p class="intro">İhtiyacınız olan damacana su için markanızı seçin.<br>Siparişinizi WhatsApp üzerinden kolayca gönderin.</p>
+<div class="products">
+<div class="card"><div class="bottle"></div><h3>Sırma Su</h3><p>Damacana su siparişi</p><button onclick="sec('Sırma Su')">Sipariş Ver</button></div>
+<div class="card"><div class="bottle"></div><h3>Saka Su</h3><p>Damacana su siparişi</p><button onclick="sec('Saka Su')">Sipariş Ver</button></div>
+<div class="card"><div class="bottle"></div><h3>Kaltun Su</h3><p>Damacana su siparişi</p><button onclick="sec('Kaltun Su')">Sipariş Ver</button></div>
+<div class="card"><div class="bottle"></div><h3>Pınar Su</h3><p>Damacana su siparişi</p><button onclick="sec('Pınar Su')">Sipariş Ver</button></div>
+<div class="card"><div class="bottle"></div><h3>Munzur Su</h3><p>Damacana su siparişi</p><button onclick="sec('Munzur Su')">Sipariş Ver</button></div>
+</div>
+<section class="order" id="siparis">
+<h2>WhatsApp Sipariş Formu</h2>
+<label for="marka">Su markası</label>
+<select id="marka">
+<option>Sırma Su</option><option>Saka Su</option><option>Kaltun Su</option><option>Pınar Su</option><option>Munzur Su</option>
+</select>
+<label for="adet">Damacana adedi</label>
+<select id="adet"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>10</option></select>
+<label for="isim">Adınız</label>
+<input id="isim" placeholder="Adınızı yazın">
+<label for="adres">Teslimat adresi</label>
+<textarea id="adres" rows="3" placeholder="Mahalle, sokak, bina ve daire"></textarea>
+<label for="not">Sipariş notu (isteğe bağlı)</label>
+<input id="not" placeholder="Varsa eklemek istediğiniz not">
+<button style="margin-top:18px" onclick="gonder()">WhatsApp ile Sipariş Gönder</button>
+</section>
+</main>
+<footer>
+<strong>ALAZOĞLU TİCARET</strong>
+<p>Bodrum damacana su siparişi</p>
+<p>Telefon: 0542 784 06 65</p>
+<a class="whatsapp" style="max-width:350px;margin:auto" href="https://wa.me/905427840665">WhatsApp'tan Bize Ulaşın</a>
+<p class="small">Sipariş ve teslimat bilgileri WhatsApp üzerinden teyit edilir.</p>
+</footer>
+<script>
+function sec(marka){
+document.getElementById('marka').value=marka;
+document.getElementById('siparis').scrollIntoView({behavior:'smooth'});
+}
+function gonder(){
+const marka=document.getElementById('marka').value;
+const adet=document.getElementById('adet').value;
+const isim=document.getElementById('isim').value.trim();
+const adres=document.getElementById('adres').value.trim();
+const not=document.getElementById('not').value.trim();
+if(!isim||!adres){alert('Lütfen adınızı ve teslimat adresinizi yazın.');return;}
+const mesaj='Merhaba, ALAZOĞLU TİCARET üzerinden su siparişi vermek istiyorum.%0A Marka: '+encodeURIComponent(marka)+'%0A Adet: '+encodeURIComponent(adet)+'%0A Ad Soyad: '+encodeURIComponent(isim)+'%0A Adres: '+encodeURIComponent(adres)+'%0A Not: '+encodeURIComponent(not);
+window.open('https://wa.me/905427840665?text='+mesaj,'_blank');
+}
+</script>
+</body>
+</html>
